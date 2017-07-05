@@ -1,5 +1,5 @@
 /**
- *  Copyright 2005-2016 Red Hat, Inc.
+ *  Copyright 2005-2017 Red Hat, Inc.
  *
  *  Red Hat licenses this file to you under the Apache License, version
  *  2.0 (the "License"); you may not use this file except in compliance
@@ -15,17 +15,31 @@
  */
 package io.fabric8.quickstarts.cxf.jaxrs;
 
+import java.util.List;
+
 import io.swagger.annotations.Api;
 
-@Api("/sayHello")
-public class HelloServiceImpl implements HelloService {
+@Api("/query")
+public class DataServiceImpl implements DataService {
 
-    public String welcome() {
-        return "Welcome to the CXF RS Spring Boot application, append /{name} to call the hello service";
-    }
-
-    public String sayHello(String a) {
-        return "Hello " + a + ", Welcome to CXF RS Spring Boot World!!!";
+    public String query() {
+        return "This is VDB Query Rest Service";
     }
     
+    DataHolder dataHolder = new DataHolder();
+
+    @Override
+    public List<Product> getProducts() {
+        return dataHolder.getProducts();
+    }
+
+    @Override
+    public List<StockPrice> getStockPrices() {
+        return dataHolder.getStockPrices();
+    }
+
+    @Override
+    public List<Stock> getStocks() {
+        return dataHolder.getStocks();
+    }
 }

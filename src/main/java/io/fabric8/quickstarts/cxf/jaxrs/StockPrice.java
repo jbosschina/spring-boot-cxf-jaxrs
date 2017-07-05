@@ -1,5 +1,5 @@
 /**
- *  Copyright 2005-2016 Red Hat, Inc.
+ *  Copyright 2005-2017 Red Hat, Inc.
  *
  *  Red Hat licenses this file to you under the Apache License, version
  *  2.0 (the "License"); you may not use this file except in compliance
@@ -15,26 +15,32 @@
  */
 package io.fabric8.quickstarts.cxf.jaxrs;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+import java.math.BigDecimal;
 
-import org.springframework.stereotype.Service;
- 
-@Path("/sayHello")
-@Service
-public interface HelloService {
- 
-    @GET
-    @Path("")
-    @Produces(MediaType.TEXT_PLAIN)
-    String welcome();
+public class StockPrice {
+
+    private String symbol;
+    private BigDecimal price;
     
-    @GET
-    @Path("/{a}")
-    @Produces(MediaType.TEXT_PLAIN)
-    String sayHello(@PathParam("a") String a);
+    public StockPrice(String symbol, BigDecimal price) {
+        super();
+        this.symbol = symbol;
+        this.price = price;
+    }
 
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
 }

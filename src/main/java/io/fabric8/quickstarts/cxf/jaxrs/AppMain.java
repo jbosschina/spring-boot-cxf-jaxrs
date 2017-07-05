@@ -1,5 +1,5 @@
 /**
- *  Copyright 2005-2016 Red Hat, Inc.
+ *  Copyright 2005-2017 Red Hat, Inc.
  *
  *  Red Hat licenses this file to you under the Apache License, version
  *  2.0 (the "License"); you may not use this file except in compliance
@@ -26,14 +26,16 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-@SpringBootApplication
-public class SampleRestApplication {
+import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
 
+@SpringBootApplication
+public class AppMain {
+    
     @Autowired
     private Bus bus;
 
     public static void main(String[] args) {
-        SpringApplication.run(SampleRestApplication.class, args);
+        SpringApplication.run(AppMain.class, args);
     }
  
     @Bean
@@ -41,9 +43,17 @@ public class SampleRestApplication {
         // setup CXF-RS
         JAXRSServerFactoryBean endpoint = new JAXRSServerFactoryBean();
         endpoint.setBus(bus);
-        endpoint.setServiceBeans(Arrays.<Object>asList(new HelloServiceImpl()));
+        endpoint.setServiceBeans(Arrays.<Object>asList(new DataServiceImpl()));
         endpoint.setAddress("/");
+        endpoint.setProviders(Arrays.asList(jacksonJaxbJsonProvider()));
         endpoint.setFeatures(Arrays.asList(new Swagger2Feature()));
         return endpoint.create();
     }
+    
+    @Bean
+    public JacksonJaxbJsonProvider jacksonJaxbJsonProvider() {
+        return new JacksonJaxbJsonProvider();
+    }
+
+
 }
