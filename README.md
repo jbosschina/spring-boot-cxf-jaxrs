@@ -1,6 +1,6 @@
 # What's this
 
-This is the Rest Layer of Teiid VDB Data Federation on Openshift. More details about VDB Data Federation refer to https://github.com/teiid/wildfly-swarm-teiid-examples/tree/master/vdb-datafederation[vdb-datafederation].
+This is the Rest Layer of Teiid VDB Data Federation on Openshift. More details about VDB Data Federation refer to https://github.com/teiid/wildfly-swarm-teiid-examples/tree/master/vdb-datafederation
 
 The rest api including:
 

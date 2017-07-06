@@ -23,6 +23,7 @@ import io.swagger.annotations.Api;
 public class DataServiceImpl implements DataService {
 
     public String query() {
+        System.out.println("/rest/query");
         return "This is VDB Query Rest Service";
     }
     
@@ -30,16 +31,19 @@ public class DataServiceImpl implements DataService {
 
     @Override
     public List<Product> getProducts() {
+        System.out.println("/rest/query/account/products");
         return dataHolder.getProducts();
     }
 
     @Override
     public List<StockPrice> getStockPrices() {
+        System.out.println("/rest/query/marketData/stockPrices");
         return dataHolder.getStockPrices();
     }
 
     @Override
     public List<Stock> getStocks() {
+        System.out.println("/rest/query/stocks");
         return dataHolder.getStocks();
     }
 }
