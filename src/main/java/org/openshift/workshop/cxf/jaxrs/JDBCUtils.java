@@ -13,7 +13,7 @@
  *  implied.  See the License for the specific language governing
  *  permissions and limitations under the License.
  */
-package io.fabric8.quickstarts.cxf.jaxrs;
+package org.openshift.workshop.cxf.jaxrs;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
@@ -88,12 +88,12 @@ public class JDBCUtils {
                 }
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         } finally {
             try {
                 close(rs, stmt, conn);
             } catch (SQLException e) {
-                throw new RuntimeException(e);
+                e.printStackTrace();
             }
         }
 
@@ -118,12 +118,12 @@ public class JDBCUtils {
                 }
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         } finally {
             try {
                 close(rs, stmt, conn);
             } catch (SQLException e) {
-                throw new RuntimeException(e);
+                e.printStackTrace();
             }
         }
     }
@@ -149,12 +149,12 @@ public class JDBCUtils {
                 }
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         } finally {
             try {
                 close(rs, stmt, conn);
             } catch (SQLException e) {
-                throw new RuntimeException(e);
+                e.printStackTrace();
             }
         }
     }

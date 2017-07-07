@@ -1,4 +1,4 @@
-package io.fabric8.quickstarts.cxf.jaxrs;
+package org.openshift.workshop.cxf.jaxrs;
 
 import java.util.List;
 

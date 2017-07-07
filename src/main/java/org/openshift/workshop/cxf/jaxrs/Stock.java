@@ -13,19 +13,31 @@
  *  implied.  See the License for the specific language governing
  *  permissions and limitations under the License.
  */
-package io.fabric8.quickstarts.cxf.jaxrs;
+package org.openshift.workshop.cxf.jaxrs;
 
 import java.math.BigDecimal;
 
-public class StockPrice {
+public class Stock {
 
+    private Integer product_id;
     private String symbol;
     private BigDecimal price;
+    private String company_name;
     
-    public StockPrice(String symbol, BigDecimal price) {
+    public Stock(Integer product_id, String symbol, BigDecimal price, String company_name) {
         super();
+        this.product_id = product_id;
         this.symbol = symbol;
         this.price = price;
+        this.company_name = company_name;
+    }
+
+    public Integer getProduct_id() {
+        return product_id;
+    }
+
+    public void setProduct_id(Integer product_id) {
+        this.product_id = product_id;
     }
 
     public String getSymbol() {
@@ -43,4 +55,14 @@ public class StockPrice {
     public void setPrice(BigDecimal price) {
         this.price = price;
     }
+
+    public String getCompany_name() {
+        return company_name;
+    }
+
+    public void setCompany_name(String company_name) {
+        this.company_name = company_name;
+    }
+    
+    
 }
